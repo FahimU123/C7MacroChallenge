@@ -49,6 +49,7 @@ struct HomeView: View {
                 VStack {
                     Text("How are you feeling right now?")
                         .font(.system(size: 24, weight: .medium))
+                        .multilineTextAlignment(.center)
                         .padding()
                     Button {
                         
