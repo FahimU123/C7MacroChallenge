@@ -8,52 +8,47 @@
 import SwiftUI
 
 struct CounterView: View {
-    
     let days = 4
     let hours = 1
     let minutes = 12
     let seconds = 38
-    
+
     var body: some View {
-        VStack {
+        VStack(alignment: .leading, spacing: 8) {
             HStack {
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 2) {
                     Text("Current Streak")
                         .font(.system(size: 12, weight: .semibold, design: .monospaced))
                     Text("Started on Feb 21, 2025")
                         .font(.system(size: 8, weight: .light, design: .monospaced))
-                        .padding(.top, 0.5)
                 }
+
                 Spacer()
+
                 Button {
                     
                 } label: {
                     Image(systemName: "square.and.arrow.up")
                 }
-                
             }
-            .padding(.horizontal)
-            
-            HStack(spacing: 40) {
+
+            HStack(spacing: 30) {
                 timeComponent(value: days, label: "Days")
                 timeComponent(value: hours, label: "Hour")
                 timeComponent(value: minutes, label: "Minutes")
                 timeComponent(value: seconds, label: "Seconds")
             }
-            .padding(.bottom, 12)
-            .padding(.top, 6)
         }
-        .padding(.top, 12)
-        .background(Color(.background))
+        .padding()
+        .background(Color(.systemGray6))
         .cornerRadius(20)
         .overlay(
             RoundedRectangle(cornerRadius: 20)
                 .stroke(Color(.separator), lineWidth: 1)
         )
         .shadow(radius: 3)
-        .padding()
     }
-    
+
     func timeComponent(value: Int, label: String) -> some View {
         VStack {
             Text("\(value)")
@@ -63,7 +58,6 @@ struct CounterView: View {
         }
     }
 }
-
 
 
 

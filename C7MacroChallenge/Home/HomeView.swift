@@ -10,64 +10,63 @@ import SwiftUI
 struct HomeView: View {
     var body: some View {
         ZStack {
-            Color.background
+            Color(.systemGray5)
                 .edgesIgnoringSafeArea(.all)
-            
+
             VStack(alignment: .leading) {
+               
                 Text("No Gamble")
                     .font(.system(size: 38, weight: .semibold, design: .monospaced))
-                    .padding()
-                
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.top, 24)
+
                 CounterView()
-                    .frame(width: 350)
-                    .padding(.leading, 15)
-                
-                Button {
-                    
-                } label: {
-                    RoundedRectangle(cornerRadius: 15)
-                        .fill(Color.orange)
-                        .frame(width: 310, height: 50)
-                        .overlay(
-                            Text("Reset Counter")
-                                .font(.system(size: 17, weight: .medium))
-                                .foregroundColor(.black)
-                        )
-                        .shadow(radius: 3)
-                        .padding()
-                        .padding(.bottom, 24)
-                        .padding()
-                    
+                    .frame(maxWidth: .infinity)
+                    .padding()
+
+                Button(action: {
+
+                }) {
+                    Text("Reset Counter")
+                        .font(.system(size: 20, weight: .semibold))
+                        .foregroundColor(.black)
+                        .frame(maxWidth: .infinity, minHeight: 50)
+                        .background(Color.yellow)
+                        .cornerRadius(12)
                 }
-                
-                HStack {
-                    StatCardView()
-                        .padding(.leading, 20)
-                    
-                }
+                .shadow(radius: 3)
                 .padding()
-                VStack {
+
+                StatCardView()
+                    .padding()
+
+                VStack(alignment: .center) {
                     Text("How are you feeling right now?")
-                        .font(.system(size: 24, weight: .medium))
+                        .font(.system(size: 32, weight: .medium))
                         .multilineTextAlignment(.center)
                         .padding()
-                    Button {
-                        
-                    } label: {
-                        Image(systemName: "plus.circle.fill")
-                            .font(.system(size: 32))
-                            .foregroundColor(.black)
-                            .padding()
+                        .padding(.horizontal, 26)
+
+                    HStack {
+                        Button(action: {
+                           
+                        }) {
+                            Image(systemName: "plus.circle.fill")
+                                .font(.system(size: 36))
+                                .foregroundColor(.black)
+                        }
+
+                        Text("Check In")
+                            .font(.system(size: 32, weight: .medium))
                     }
-                    Text("Check In")
-                        .font(.system(size: 24, weight: .medium))
-//                        .padding(.bottom, 30)
                 }
-                .padding(.horizontal, 20)
             }
+            .padding(.horizontal)
+            .padding(.bottom, 32)
         }
     }
 }
+
 
 #Preview {
     HomeView()
