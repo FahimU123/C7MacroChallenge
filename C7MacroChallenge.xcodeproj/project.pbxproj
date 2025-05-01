@@ -6,13 +6,48 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		1E76EE5C2DC14741006A83C9 /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E76EE5B2DC146B7006A83C9 /* VideoView.swift */; };
+		1E76EE5E2DC147A8006A83C9 /* NotesWallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E76EE5D2DC147A8006A83C9 /* NotesWallView.swift */; };
+		1E76EE602DC148E3006A83C9 /* NoteCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E76EE5F2DC148E3006A83C9 /* NoteCardView.swift */; };
+		1E76EE622DC148FF006A83C9 /* AddNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E76EE612DC148FF006A83C9 /* AddNoteView.swift */; };
+		1E76EE642DC1491B006A83C9 /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E76EE632DC1491B006A83C9 /* PhotoPicker.swift */; };
+		1E76EE662DC14924006A83C9 /* VideoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E76EE652DC14924006A83C9 /* VideoPicker.swift */; };
+		1E76EE682DC1493A006A83C9 /* NoteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E76EE672DC1493A006A83C9 /* NoteData.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
+		1E76EE5B2DC146B7006A83C9 /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
+		1E76EE5D2DC147A8006A83C9 /* NotesWallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesWallView.swift; sourceTree = "<group>"; };
+		1E76EE5F2DC148E3006A83C9 /* NoteCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCardView.swift; sourceTree = "<group>"; };
+		1E76EE612DC148FF006A83C9 /* AddNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteView.swift; sourceTree = "<group>"; };
+		1E76EE632DC1491B006A83C9 /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
+		1E76EE652DC14924006A83C9 /* VideoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPicker.swift; sourceTree = "<group>"; };
+		1E76EE672DC1493A006A83C9 /* NoteData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteData.swift; sourceTree = "<group>"; };
 		DD2D126E2DC0079E0095E508 /* C7MacroChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = C7MacroChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		1E76EE842DC2AFD6006A83C9 /* Exceptions for "C7MacroChallenge" folder in "C7MacroChallenge" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = DD2D126D2DC0079E0095E508 /* C7MacroChallenge */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		1E76EE692DC2AF6F006A83C9 /* Fonts */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		DD2D12702DC0079E0095E508 /* C7MacroChallenge */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				1E76EE842DC2AFD6006A83C9 /* Exceptions for "C7MacroChallenge" folder in "C7MacroChallenge" target */,
+			);
 			path = C7MacroChallenge;
 			sourceTree = "<group>";
 		};
@@ -33,6 +68,14 @@
 			isa = PBXGroup;
 			children = (
 				DD2D12702DC0079E0095E508 /* C7MacroChallenge */,
+				1E76EE5B2DC146B7006A83C9 /* VideoView.swift */,
+				1E76EE5D2DC147A8006A83C9 /* NotesWallView.swift */,
+				1E76EE612DC148FF006A83C9 /* AddNoteView.swift */,
+				1E76EE632DC1491B006A83C9 /* PhotoPicker.swift */,
+				1E76EE652DC14924006A83C9 /* VideoPicker.swift */,
+				1E76EE672DC1493A006A83C9 /* NoteData.swift */,
+				1E76EE5F2DC148E3006A83C9 /* NoteCardView.swift */,
+				1E76EE692DC2AF6F006A83C9 /* Fonts */,
 				DD2D126F2DC0079E0095E508 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -61,6 +104,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				1E76EE692DC2AF6F006A83C9 /* Fonts */,
 				DD2D12702DC0079E0095E508 /* C7MacroChallenge */,
 			);
 			name = C7MacroChallenge;
@@ -119,6 +163,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E76EE642DC1491B006A83C9 /* PhotoPicker.swift in Sources */,
+				1E76EE662DC14924006A83C9 /* VideoPicker.swift in Sources */,
+				1E76EE622DC148FF006A83C9 /* AddNoteView.swift in Sources */,
+				1E76EE602DC148E3006A83C9 /* NoteCardView.swift in Sources */,
+				1E76EE682DC1493A006A83C9 /* NoteData.swift in Sources */,
+				1E76EE5E2DC147A8006A83C9 /* NotesWallView.swift in Sources */,
+				1E76EE5C2DC14741006A83C9 /* VideoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,9 +304,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = SD28Q5JP86;
+				DEVELOPMENT_TEAM = 22PRLCDTWD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = C7MacroChallenge/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -281,9 +333,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = SD28Q5JP86;
+				DEVELOPMENT_TEAM = 22PRLCDTWD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = C7MacroChallenge/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

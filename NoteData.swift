@@ -6,13 +6,19 @@
 //
 
 import SwiftUI
+import SwiftData
 
-struct NoteData: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+@Model
+class Note {
+    @Attribute(.unique) var id: UUID
+    var text: String?
+    var imageData: Data?
+    var videoURL: URL?
+    
+    init(text: String? = nil, imageData: Data? = nil, videoURL: URL? = nil) {
+        self.id = UUID()
+        self.text = text
+        self.imageData = imageData
+        self.videoURL = videoURL
     }
-}
-
-#Preview {
-    NoteData()
 }
