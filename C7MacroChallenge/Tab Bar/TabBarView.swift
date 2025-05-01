@@ -32,7 +32,7 @@ struct TabBarView: View {
                     Label("Account", systemImage: "clipboard.fill")
                 }
 
-            HomeView()
+            AnalyticsView()
                 .tabItem {
                     Label("Analytics", systemImage: "chart.bar.fill")
                 }
