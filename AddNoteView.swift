@@ -12,7 +12,7 @@ import AVKit
 
 struct AddNoteView: View {
     @Environment(\.dismiss) var dismiss
-    @Environment(\.modelContext) var modelContext
+    @Environment(\.modelContext) private var modelContext
     
     @State private var noteText: String = ""
     @State private var selectedImage: UIImage? 
@@ -93,9 +93,16 @@ struct AddNoteView: View {
     }
     
     func saveNote() {
+        guard !noteText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || selectedImage != nil || selectedVideoURL != nil else {
+            return
+        }
+        
         let imageData = selectedImage?.jpegData(compressionQuality: 0.8)
+        
         let newNote = Note(text: noteText, imageData: imageData, videoURL: selectedVideoURL)
         modelContext.insert(newNote)
+        
+        
         dismiss()
     }
 }

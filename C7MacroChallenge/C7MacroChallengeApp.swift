@@ -13,5 +13,6 @@ struct C7MacroChallengeApp: App {
         WindowGroup {
             ContentView()
         }
+        .modelContainer(for: Note.self)
     }
 }

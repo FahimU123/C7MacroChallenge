@@ -53,10 +53,12 @@ struct NotesWallView: View {
             .sheet(isPresented: $showingNewNoteSheet) {
                 AddNoteView()
             }
+            
         }
     }
 }
 
 #Preview {
     NotesWallView()
+        .modelContainer(for: Note.self)
 }
