@@ -1,18 +1,64 @@
 //
-//  NoteWallView.swift
+//  MainWhyView.swift
 //  C7MacroChallenge
 //
-//  Created by Davaughn Williams on 5/2/25.
+//  Created by Davaughn Williams on 4/29/25.
 //
 
 import SwiftUI
+import SwiftData
 
-struct NoteWallView: View {
+struct NotesWallView: View {
+    @Query var notes: [Note]
+    @Environment(\.modelContext) private var modelContext
+    @State private var showingNewNoteSheet = false
+    
+    let columns = [GridItem(.flexible()), GridItem(.flexible())]
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            Color.background
+                .ignoresSafeArea()
+            
+            VStack {
+                HStack {
+                    Text("Why I'm doing this")
+                        .font(.system(size: 24, design: .monospaced))
+                        .fontWeight(.semibold)
+                        .bold()
+                        .padding(.leading)
+                    
+                    Spacer()
+                    
+                    Button {
+                        showingNewNoteSheet = true
+                    } label: {
+                        Image(systemName: "plus.circle.fill")
+                            .foregroundStyle(.black)
+                            .font(.system(size: 35))
+                            .fontWeight(.ultraLight)
+                            .padding()
+                    }
+                }
+                ScrollView {
+                    LazyVGrid(columns: columns, spacing: 20) {
+                        ForEach(notes) { note in
+                            NoteCardView(note: note)
+                        }
+                    }
+                    .padding()
+                }
+                //            CustomTabBar()
+            }
+            .sheet(isPresented: $showingNewNoteSheet) {
+                AddNoteView()
+            }
+            
+        }
     }
 }
 
 #Preview {
-    NoteWallView()
+    NotesWallView()
+        .modelContainer(for: Note.self)
 }

@@ -22,7 +22,7 @@ struct TabBarView: View {
                        
                 }
 
-            HomeView()
+            NotesWallView()
                 .tabItem {
                     Label("Archive", systemImage: "book.fill")
                 }

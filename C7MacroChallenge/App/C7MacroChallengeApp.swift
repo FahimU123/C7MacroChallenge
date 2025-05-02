@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct C7MacroChallengeApp: App {
@@ -13,5 +14,6 @@ struct C7MacroChallengeApp: App {
         WindowGroup {
             TabBarView()
         }
+        .modelContainer(for: Note.self)
     }
 }
