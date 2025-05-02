@@ -1,4 +1,3 @@
-//
 //  ContentView.swift
 //  C7MacroChallenge
 //
@@ -15,7 +14,6 @@ struct ContentView: View {
         .padding()
     }
 }
-
 
 #Preview {
     ContentView()

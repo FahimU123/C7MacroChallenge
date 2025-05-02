@@ -1,4 +1,3 @@
-//
 //  C7MacroChallengeApp.swift
 //  C7MacroChallenge
 //
@@ -13,6 +12,5 @@ struct C7MacroChallengeApp: App {
         WindowGroup {
             TabBarView()
         }
-        .modelContainer(for: Note.self)
     }
 }
