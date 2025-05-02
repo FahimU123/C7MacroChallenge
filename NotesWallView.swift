@@ -23,7 +23,7 @@ struct NotesWallView: View {
             VStack {
                 HStack {
                     Text("Why I'm doing this")
-                        .font(.custom("SF Mono", size: 24))
+                        .font(.system(size: 24, design: .monospaced))
                         .fontWeight(.semibold)
                         .bold()
                         .padding(.leading)

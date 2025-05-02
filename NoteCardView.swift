@@ -28,7 +28,7 @@ struct NoteCardView: View {
                     Rectangle()
                         .fill(Color.black)
                         .frame(width: 175, height: 224)
-                        .cornerRadius(16, corners: [.topLeft, .topRight])
+                        .cornerRadius(25, corners: [.topLeft, .topRight])
                     
                     Image(systemName: "play.circle.fill")
                         .resizable()
@@ -45,7 +45,7 @@ struct NoteCardView: View {
                         .frame(minHeight: 100, maxHeight: 224)
 
                     Text(text)
-                        .font(.custom("SF Mono", size: 12))
+                        .font(.system(size: 12, design: .monospaced))
                         .fontWeight(.semibold)
                         .multilineTextAlignment(.leading)
                         .lineLimit(nil)
