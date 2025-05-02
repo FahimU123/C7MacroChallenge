@@ -9,9 +9,13 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        NotesWallView()
+        VStack {
+            HomeView()
+        }
+        .padding()
     }
 }
+
 
 #Preview {
     ContentView()
