@@ -12,18 +12,35 @@ struct ChartView: View {
     let data: [ChartEntry]
 
     var body: some View {
-        Chart(data) { entry in
-            SectorMark(
-                angle: .value("Value", entry.value),
-                //innerRadius: .ratio(0.5), this makes it a donut chart
-                angularInset: 1
-            )
-            .foregroundStyle(by: .value("Category", entry.category))
+        GeometryReader { geo in
+            VStack(spacing: 8) {
+                Chart(data) { entry in
+                    SectorMark(
+                        angle: .value("Value", entry.value),
+                        angularInset: 1
+                    )
+                    .foregroundStyle(entry.color)
+                }
+                .frame(width: geo.size.width * 0.8, height: geo.size.width * 0.8)
+                .chartLegend(.hidden)
+
+                HStack(spacing: 16) {
+                    ForEach(data, id: \.category) { entry in
+                        HStack(spacing: 4) {
+                            Circle()
+                                .fill(entry.color)
+                                .frame(width: 10, height: 10)
+                            Text(entry.category)
+                                .font(.caption)
+                        }
+                    }
+                }
+                .frame(maxWidth: .infinity, alignment: .center)
+            }
+            .frame(width: geo.size.width, height: geo.size.height, alignment: .top)
         }
-        .frame(width: 230, height: 230)
     }
 }
-
 
 #Preview {
     ChartView(data: WhatsWorkingChartData)
