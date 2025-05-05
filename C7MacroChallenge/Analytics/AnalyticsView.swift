@@ -8,11 +8,6 @@
 import SwiftUI
 import Charts
 
-struct AnalyticsChartItem {
-    let title: String
-    let subtitle: String
-    let chartData: [ChartEntry]
-}
 
 // Example chart data arrays
 let whatsWorkingCharts: [AnalyticsChartItem] = [
@@ -28,6 +23,30 @@ let whatsNotWorkingCharts: [AnalyticsChartItem] = [
 struct AnalyticsView: View {
     @State private var workingIndex = 0
     @State private var notWorkingIndex = 0
+    @State private var selectedTimeRange: String = "Weekly"
+    let timeRanges = ["Weekly", "Monthly", "Yearly"]
+    
+    var filteredWorkingCharts: [AnalyticsChartItem] {
+        switch selectedTimeRange {
+        case "Weekly":
+            return weeklyWorkingCharts
+        case "Yearly":
+            return yearlyWorkingCharts
+        default:
+            return monthlyWorkingCharts
+        }
+    }
+    
+    var filteredNotWorkingCharts: [AnalyticsChartItem] {
+        switch selectedTimeRange {
+        case "Weekly":
+            return weeklyNotWorkingCharts
+        case "Yearly":
+            return yearlyNotWorkingCharts
+        default:
+            return monthlyNotWorkingCharts
+        }
+    }
 
     var body: some View {
         ZStack {
@@ -35,25 +54,31 @@ struct AnalyticsView: View {
                 .ignoresSafeArea()
 
             VStack(spacing: 12) {
-                HStack {
-                    Text("Monthly")
-                        .font(.title2)
-                        .fontWeight(.bold)
-                        .fontDesign(.monospaced)
-                        
-                    Button(action: {}) {
+                Menu {
+                    ForEach(timeRanges, id: \.self) { range in
+                        Button(action: {
+                            selectedTimeRange = range
+                        }) {
+                            Text(range)
+                        }
+                    }
+                } label: {
+                    HStack(spacing: 4) {
+                        Text(selectedTimeRange)
+                            .font(.title2)
+                            .fontWeight(.bold)
+                            .fontDesign(.monospaced)
+                            .foregroundColor(.black)
                         Image(systemName: "chevron.down.circle.fill")
                             .foregroundColor(.black)
-                            
-                    }.padding()
+                    }
                 }
-                
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal)
                 .padding(.top)
 
             // Top Half
-                let workingItem = whatsWorkingCharts[workingIndex]
+                let workingItem = filteredWorkingCharts[workingIndex]
 
                 VStack(alignment: .leading, spacing: 10) {
                     Text(workingItem.title)
@@ -78,8 +103,8 @@ struct AnalyticsView: View {
                         .padding(.horizontal, 8)
 
                         TabView(selection: $workingIndex) {
-                            ForEach(0..<whatsWorkingCharts.count, id: \.self) { index in
-                                ChartView(data: whatsWorkingCharts[index].chartData)
+                            ForEach(0..<filteredWorkingCharts.count, id: \.self) { index in
+                                ChartView(data: filteredWorkingCharts[index].chartData)
                                     .frame(width: 230, height: 230)
                                     .tag(index)
                             }
@@ -90,7 +115,7 @@ struct AnalyticsView: View {
                         .animation(.easeInOut, value: workingIndex)
 
                         Button(action: {
-                            if workingIndex < whatsWorkingCharts.count - 1 { workingIndex += 1 }
+                            if workingIndex < filteredWorkingCharts.count - 1 { workingIndex += 1 }
                         }) {
                             Image(systemName: "chevron.right")
                                 .foregroundColor(.white)
@@ -108,7 +133,7 @@ struct AnalyticsView: View {
                 Divider()
                     
         // Bottom Half
-                let notWorkingItem = whatsNotWorkingCharts[notWorkingIndex]
+                let notWorkingItem = filteredNotWorkingCharts[notWorkingIndex]
 
                 VStack(alignment: .leading, spacing: 10) {
                     Text(notWorkingItem.title)
@@ -133,8 +158,8 @@ struct AnalyticsView: View {
                         .padding(.horizontal, 8)
 
                         TabView(selection: $notWorkingIndex) {
-                            ForEach(0..<whatsNotWorkingCharts.count, id: \.self) { index in
-                                ChartView(data: whatsNotWorkingCharts[index].chartData)
+                            ForEach(0..<filteredNotWorkingCharts.count, id: \.self) { index in
+                                ChartView(data: filteredNotWorkingCharts[index].chartData)
                                     .frame(width: 230, height: 230)
                                     .tag(index)
                             }
@@ -145,7 +170,7 @@ struct AnalyticsView: View {
                         .animation(.easeInOut, value: notWorkingIndex)
 
                         Button(action: {
-                            if notWorkingIndex < whatsNotWorkingCharts.count - 1 { notWorkingIndex += 1 }
+                            if notWorkingIndex < filteredNotWorkingCharts.count - 1 { notWorkingIndex += 1 }
                         }) {
                             Image(systemName: "chevron.right")
                                 .foregroundColor(.white)
