@@ -20,6 +20,7 @@ struct AnalyticsChartItem {
     let subtitle: String
     let chartData: [ChartEntry]
 }
+
 //Base chart data used by all time ranges
 
 let WhatsWorkingChartData: [ChartEntry] = [
